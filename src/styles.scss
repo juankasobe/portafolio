@@ -1,1 +1,79 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+section {
+  padding: 20px 0;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.card-body p {
+  margin: 0;
+}
+
+.list-group-item {
+  margin-bottom: 10px;
+}
+
+nav {
+  cursor: pointer;
+}
+
+.margen {
+  margin-top: 10%;
+  margin-bottom: 7%;
+}
+.margenPequeno {
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+.margenBottom {
+  margin-bottom: 7%;
+} 
+.margenLeft {
+  margin-left: 10%;
+}
+
+.icoPersonal {
+  max-width: 18px;
+  height: auto;
+}
+.icoSelfie {
+  max-width: 30px;
+  height: auto;
+}
+.whiteIcon {
+  color: white;
+}
+.linea-final {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-top: 2px solid #ffffff; /* Ajusta el color y grosor de la línea según prefieras */
+}
+.linea{
+  border: 2px solid #ffffff; /* Ajusta el color y grosor de la línea según prefieras */
+}
+
+.icono {
+  transition: transform 0.3s;
+  display:inline-block
+}
+.icono:hover {
+  transform: scale(1.5); /* Cambia el 1.5 por el valor que prefieras para aumentar el tamaño */
+}
+
+
+.card-hover {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card-hover:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
