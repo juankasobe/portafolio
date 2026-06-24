@@ -1,9 +1,67 @@
-.imgPersonal{
-    max-width: 40%;
-    height: auto;
+.projects {
+  border-top: 1px solid var(--line);
 }
 
-.cardPropia{
-    min-height: 21rem;
-    width: auto;
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 20px;
+}
+
+.project-card {
+  overflow: hidden;
+}
+
+.project-media {
+  display: grid;
+  min-height: 260px;
+  place-items: center;
+  border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(135deg, rgba(217, 164, 65, 0.16), rgba(72, 167, 160, 0.1)),
+    rgba(255, 255, 255, 0.04);
+}
+
+.app-preview {
+  width: min(38%, 180px);
+  max-height: 230px;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 24px rgba(0, 0, 0, 0.42));
+}
+
+.game-media img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 24px;
+}
+
+.project-type {
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.card-title {
+  margin: 10px 0 12px;
+  color: var(--ink);
+  font-size: 1.55rem;
+}
+
+.project-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+@media (max-width: 860px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
 }
