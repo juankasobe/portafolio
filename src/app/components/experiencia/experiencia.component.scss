@@ -1,0 +1,27 @@
+.experience {
+  border-top: 1px solid var(--line);
+  padding-bottom: 112px;
+}
+
+.experience-card {
+  max-width: 820px;
+  margin-left: auto;
+}
+
+.card-header {
+  padding: 16px 22px;
+  font-size: 1rem;
+}
+
+.card-body {
+  padding: 26px;
+}
+
+.card-title {
+  color: var(--ink);
+  font-size: 1.6rem;
+}
+
+.card-text strong {
+  color: var(--accent);
+}

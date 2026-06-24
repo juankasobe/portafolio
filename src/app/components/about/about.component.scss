@@ -1,13 +1,98 @@
-p{
-    text-align: left;
+.about {
+  border-top: 1px solid var(--line);
 }
-.cardWidth{
-    max-width: 17rem;
-    margin-bottom: 20px;
-    min-height: 15rem;
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(24px, 5vw, 56px);
+  align-items: start;
+}
+
+.about-copy {
+  padding: 28px;
+  border-left: 3px solid var(--accent);
+  background: linear-gradient(90deg, rgba(217, 164, 65, 0.08), transparent);
+}
+
+.contact-link {
+  display: inline-flex;
+  margin-top: 12px;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent);
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.cardWidth {
+  min-height: 230px;
+  overflow: hidden;
+}
+
+.card-header {
+  padding: 14px 18px;
+  font-weight: 700;
+}
+
+.card-body {
+  display: grid;
+  gap: 18px;
+  padding: 22px;
+}
+
+.institution {
+  color: var(--accent);
+  font-size: 0.86rem;
+  text-transform: uppercase;
+}
+
+.skills-panel {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 24px;
+  align-items: center;
+  margin-top: 36px;
+  padding: 22px 24px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.skills-panel h4 {
+  margin: 0;
+  color: var(--ink);
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 16px;
 }
 
 .icoProgramacion {
-    max-height: 50px;
-    width: auto;
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 860px) {
+  .about-layout,
+  .education-grid,
+  .skills-panel {
+    grid-template-columns: 1fr;
   }
+
+  .skills-list {
+    justify-content: flex-start;
+  }
+}
