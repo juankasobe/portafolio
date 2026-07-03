@@ -1,23 +1,23 @@
-<nav  [ngClass]="{'navbar-hidden': !navbarVisible, 'navbar-shown': navbarVisible}" class="navbar navbar-expand-md px-3 px-md-4 fixed-top" >
+<nav [ngClass]="{'navbar-hidden': !navbarVisible, 'navbar-shown': navbarVisible}" class="navbar navbar-expand-md px-3 px-md-4 fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" (click)="onClick('home')" ><img src="selfie2.png" alt="Foto de Juan Soberón" class="icoSelfie me-2" /> Juan Soberón</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="#home" (click)="onClick('home', $event)"><img src="selfie2.png" alt="Foto de Juan Soberón" class="icoSelfie me-2" /> Juan Soberón</a>
+        <button class="navbar-toggler" type="button" (click)="toggleMenu()"
+            aria-controls="navbarNav" [attr.aria-expanded]="menuOpen" aria-label="Abrir navegación">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">
+        <div class="navbar-collapse flex-row-reverse" [ngClass]="{'collapse': !menuOpen}" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" (click)="onClick('home')" aria-current="page">Inicio</a>
+                    <a class="nav-link" href="#home" (click)="onClick('home', $event)">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" (click)="onClick('about')" aria-current="page">Sobre mi</a>
+                    <a class="nav-link" href="#about" (click)="onClick('about', $event)">Sobre mí</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" (click)="onClick('proyectos')">Proyectos</a>
+                    <a class="nav-link" href="#proyectos" (click)="onClick('proyectos', $event)">Proyectos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" (click)="onClick('experiencia')">Experiencia</a>
+                    <a class="nav-link" href="#experiencia" (click)="onClick('experiencia', $event)">Experiencia</a>
                 </li>
             </ul>
         </div>

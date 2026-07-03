@@ -9,14 +9,23 @@ import { Component, HostListener } from '@angular/core';
 })
 export class NavbarComponent {
   constructor(private viewportScroller: ViewportScroller) {}
-  public onClick(elementId: string): void {
+
+  menuOpen = false;
+  navbarVisible = true;
+  lastScrollTop = 0;
+
+  public onClick(elementId: string, event?: Event): void {
+    event?.preventDefault();
     this.viewportScroller.scrollToAnchor(elementId);
+    this.menuOpen = false;
   }
-  navbarVisible: boolean = true;
-  lastScrollTop: number = 0;
+
+  public toggleMenu(): void {
+    this.menuOpen = !this.menuOpen;
+  }
 
   @HostListener('window:scroll', [])
-  onWindowScroll() {
+  onWindowScroll(): void {
     const currentScrollTop =
       window.pageYOffset || document.documentElement.scrollTop;
     if (currentScrollTop > this.lastScrollTop) {
