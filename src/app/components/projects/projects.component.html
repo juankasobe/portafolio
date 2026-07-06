@@ -11,12 +11,34 @@
                         <img [src]="project.image.src" [class]="project.image.className ?? ''" [alt]="project.image.alt">
                   </div>
                   <div class="card-body">
-                        <span class="project-type">{{ project.type }}</span>
+                        <div class="project-meta" aria-label="Datos del proyecto">
+                              <span class="project-type">{{ project.type }}</span>
+                              <span class="project-status">{{ project.status }}</span>
+                        </div>
                         <h5 class="card-title">{{ project.title }}</h5>
+                        <p class="project-summary">{{ project.summary }}</p>
                         <p class="card-text">{{ project.description }}</p>
+
+                        <div class="project-detail">
+                              <span class="detail-label">Rol</span>
+                              <p>{{ project.role }}</p>
+                        </div>
+
+                        <div class="project-stack" aria-label="Tecnologías utilizadas">
+                              @for (technology of project.stack; track technology) {
+                                    <span class="stack-badge">{{ technology }}</span>
+                              }
+                        </div>
+
+                        <ul class="project-highlights">
+                              @for (highlight of project.highlights; track highlight) {
+                                    <li>{{ highlight }}</li>
+                              }
+                        </ul>
+
                         <div class="project-links">
                               @for (link of project.links; track link.href) {
-                                    <a [href]="link.href" target="_blank" [title]="link.title" rel="noreferrer">
+                                    <a [href]="link.href" target="_blank" [title]="link.title" [attr.aria-label]="link.ariaLabel" rel="noreferrer">
                                           <i [class]="link.iconClass"></i>
                                     </a>
                               }

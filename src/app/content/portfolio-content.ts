@@ -53,6 +53,7 @@ export interface AboutContent {
 export interface ProjectLink {
   readonly href: string;
   readonly title: string;
+  readonly ariaLabel: string;
   readonly iconClass: string;
 }
 
@@ -69,8 +70,13 @@ export interface PortfolioProject {
     readonly className?: string;
   };
   readonly type: string;
+  readonly status: string;
   readonly title: string;
+  readonly summary: string;
   readonly description: string;
+  readonly role: string;
+  readonly stack: readonly string[];
+  readonly highlights: readonly string[];
   readonly links: readonly ProjectLink[];
   readonly toolIcons: readonly ProjectToolIcon[];
 }
@@ -102,13 +108,14 @@ export const heroContent: HeroContent = {
     alt: '',
   },
   name: 'Juan Carlos Soberón',
-  headline: 'Desarrollador de aplicaciones web y móviles.',
-  description: 'Construyo interfaces claras y aplicaciones móviles con una base técnica práctica.',
+  headline: 'Desarrollador web y móvil enfocado en Angular e Ionic.',
+  description:
+    'Diseño y construyo interfaces responsivas, aplicaciones móviles y soluciones conectadas a datos con una base técnica clara y mantenible.',
   photo: {
     src: 'selfie2.png',
     alt: 'Foto de Juan Carlos Soberón',
   },
-  badge: 'Angular · Ionic · SQL',
+  badge: 'Angular · Ionic · MySQL',
   cv: {
     href: 'CV_Juan_Soberon.pdf',
     download: 'CV_Juan_Soberon.pdf',
@@ -127,7 +134,7 @@ export const heroContent: HeroContent = {
       iconClass: 'bi bi-github whiteIcon icono',
     },
   ],
-  focusMetrics: ['Mobile', 'Frontend', 'SQL'],
+  focusMetrics: ['Apps móviles', 'Frontends responsivos', 'Datos SQL'],
 };
 
 export const aboutContent: AboutContent = {
@@ -171,12 +178,23 @@ export const projectsContent: ProjectsContent = {
         className: 'app-preview',
       },
       type: 'Ionic · Mobile',
+      status: 'Aplicación Android',
       title: 'App de domótica',
-      description: 'Aplicación para dispositivos Android de control de luces inteligentes.',
+      summary: 'Control móvil para luces inteligentes desde una interfaz simple y directa.',
+      description:
+        'El proyecto resuelve la necesidad de administrar luces del hogar desde un dispositivo Android, conectando una experiencia móvil clara con acciones de control para domótica.',
+      role: 'Diseño de la interfaz móvil, estructura de la app y flujo principal de control.',
+      stack: ['Ionic', 'Angular', 'Android'],
+      highlights: [
+        'Interfaz enfocada en acciones rápidas para controlar luces inteligentes.',
+        'Experiencia móvil pensada para uso cotidiano y navegación sencilla.',
+        'Base técnica alineada con desarrollo web/móvil y componentes reutilizables.',
+      ],
       links: [
         {
           href: 'https://github.com/juankasobe/smartHome.git',
           title: 'GitHub',
+          ariaLabel: 'Ver repositorio de la app de domótica en GitHub',
           iconClass: 'bi bi-github whiteIcon icono',
         },
       ],

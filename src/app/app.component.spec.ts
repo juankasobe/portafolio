@@ -57,11 +57,31 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const pageText = compiled.textContent ?? '';
 
-    expect(pageText).toContain('Desarrollador de aplicaciones web y móviles');
-    expect(pageText).toContain('Angular · Ionic · SQL');
+    expect(pageText).toContain('Desarrollador web y móvil enfocado en Angular e Ionic');
+    expect(pageText).toContain('Angular · Ionic · MySQL');
+    expect(pageText).toContain('Apps móviles');
     expect(pageText).not.toContain('videojuegos');
     expect(pageText).not.toContain('Godot');
     expect(pageText).not.toContain('Mario');
+  });
+
+  it('should explain the domotics project value and stack', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    const pageText = compiled.textContent ?? '';
+    const projectLink = compiled.querySelector(
+      'a[aria-label="Ver repositorio de la app de domótica en GitHub"]'
+    ) as HTMLAnchorElement | null;
+
+    expect(pageText).toContain('Control móvil para luces inteligentes');
+    expect(pageText).toContain('Rol');
+    expect(pageText).toContain('Ionic');
+    expect(pageText).toContain('Angular');
+    expect(projectLink).not.toBeNull();
+    expect(projectLink?.getAttribute('href')).toBe(
+      'https://github.com/juankasobe/smartHome.git'
+    );
   });
 
 });
