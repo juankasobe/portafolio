@@ -14,6 +14,11 @@
                 <strong>{{ item.highlightedText }}</strong>
                 {{ item.descriptionAfterHighlight }}
             </p>
+            <ul class="experience-highlights" aria-label="Aportes de la experiencia">
+                @for (highlight of item.highlights; track highlight) {
+                <li>{{ highlight }}</li>
+                }
+            </ul>
         </div>
     </div>
     }

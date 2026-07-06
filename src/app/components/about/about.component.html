@@ -9,30 +9,37 @@
       <p>
         {{ about.intro }}
       </p>
+      <ul class="about-highlights" aria-label="Fortalezas del perfil">
+        @for (highlight of about.highlights; track highlight) {
+          <li>{{ highlight }}</li>
+        }
+      </ul>
       <a class="contact-link" [href]="'mailto:' + about.contactEmail">
         {{ about.contactEmail }}
       </a>
     </div>
 
-    <div class="education-grid" [attr.aria-label]="about.educationLabel">
-      @for (education of about.education; track education.type) {
-        <div class="card cardWidth card-hover">
-          <div class="card-header text-bg-secondary">{{ education.type }}</div>
-          <div class="card-body">
-            <p class="card-text">{{ education.title }}</p>
-            <p class="card-text institution">{{ education.institution }}</p>
+    <div class="about-details">
+      <div class="education-grid" [attr.aria-label]="about.educationLabel">
+        @for (education of about.education; track education.type) {
+          <div class="card cardWidth card-hover">
+            <div class="card-header text-bg-secondary">{{ education.type }}</div>
+            <div class="card-body">
+              <p class="card-text">{{ education.title }}</p>
+              <p class="card-text institution">{{ education.institution }}</p>
+            </div>
           </div>
-        </div>
-      }
-    </div>
-  </div>
+        }
+      </div>
 
-  <div class="skills-panel">
-    <h4>{{ about.skillsTitle }}</h4>
-    <div class="skills-list">
-      @for (skill of about.skills; track skill.src) {
-        <img [src]="skill.src" [alt]="skill.alt" class="icoProgramacion" />
-      }
+      <div class="skills-panel">
+        <h4>{{ about.skillsTitle }}</h4>
+        <div class="skills-list">
+          @for (skill of about.skills; track skill.src) {
+            <img [src]="skill.src" [alt]="skill.alt" class="icoProgramacion" />
+          }
+        </div>
+      </div>
     </div>
   </div>
 </section>

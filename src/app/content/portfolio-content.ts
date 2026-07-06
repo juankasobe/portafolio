@@ -43,6 +43,7 @@ export interface AboutContent {
   readonly kicker: string;
   readonly title: string;
   readonly intro: string;
+  readonly highlights: readonly string[];
   readonly contactEmail: string;
   readonly educationLabel: string;
   readonly education: readonly EducationItem[];
@@ -93,6 +94,7 @@ export interface ExperienceItem {
   readonly descriptionBeforeHighlight: string;
   readonly highlightedText: string;
   readonly descriptionAfterHighlight: string;
+  readonly highlights: readonly string[];
 }
 
 export interface ExperienceContent {
@@ -141,7 +143,12 @@ export const aboutContent: AboutContent = {
   kicker: 'Perfil',
   title: 'Sobre mi',
   intro:
-    '¡Hola! Soy un apasionado del desarrollo de aplicaciones. Me gusta crear sitios web dinámicos y soluciones móviles utilizando herramientas como HTML, CSS, Angular e Ionic. Siempre estoy aprendiendo y experimentando con nuevas tecnologías para mejorar mis habilidades.',
+    'Soy desarrollador web y móvil con foco en construir interfaces claras, responsivas y mantenibles. Trabajo principalmente con Angular e Ionic, integrando bases de datos y cuidando que cada solución sea simple de usar y fácil de evolucionar.',
+  highlights: [
+    'Desarrollo de interfaces web y móviles con Angular, Ionic, HTML y CSS.',
+    'Base técnica en Ingeniería en Ciencias de la Computación.',
+    'Interés en soluciones conectadas a datos y experiencias responsivas.',
+  ],
   contactEmail: 'juanka5200@outlook.com',
   educationLabel: 'Estudios',
   education: [
@@ -211,9 +218,14 @@ export const experienceContent: ExperienceContent = {
       role: 'Soporte técnico de software e infraestructura',
       company: 'Incomis',
       descriptionBeforeHighlight:
-        'Mantenimiento y corrección de errores para diferentes sistemas empresariales en hardware y software en la empresa de tecnología de la información',
+        'Experiencia en soporte técnico, mantenimiento y corrección de incidencias para sistemas empresariales dentro de',
       highlightedText: 'Incomis',
-      descriptionAfterHighlight: 'en la ciudad de Ambato, Ecuador.',
+      descriptionAfterHighlight: 'empresa de tecnología de la información ubicada en Ambato, Ecuador.',
+      highlights: [
+        'Atención de problemas relacionados con software e infraestructura.',
+        'Apoyo en mantenimiento y revisión de sistemas empresariales.',
+        'Corrección de errores reportados en entornos de uso interno.',
+      ],
     },
   ],
 };

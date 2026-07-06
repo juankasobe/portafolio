@@ -65,6 +65,44 @@ describe('AppComponent', () => {
     expect(pageText).not.toContain('Mario');
   });
 
+  it('should present a concrete about profile without broad claims', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    const pageText = compiled.textContent ?? '';
+
+    expect(pageText).toContain('interfaces claras, responsivas y mantenibles');
+    expect(pageText).toContain('Angular e Ionic');
+    expect(pageText).toContain('Ingeniería en Ciencias de la Computación');
+  });
+
+  it('should render skills below the education cards in the about details column', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    const aboutDetails = compiled.querySelector('.about-details');
+    const educationGrid = aboutDetails?.querySelector('.education-grid');
+    const skillsPanel = aboutDetails?.querySelector('.skills-panel');
+
+    expect(aboutDetails).not.toBeNull();
+    expect(educationGrid).not.toBeNull();
+    expect(skillsPanel).not.toBeNull();
+    expect(educationGrid?.compareDocumentPosition(skillsPanel as Node)).toBe(
+      Node.DOCUMENT_POSITION_FOLLOWING
+    );
+  });
+
+  it('should describe experience with credible support and maintenance details', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    const pageText = compiled.textContent ?? '';
+
+    expect(pageText).toContain('soporte técnico, mantenimiento y corrección de incidencias');
+    expect(pageText).toContain('software e infraestructura');
+    expect(pageText).toContain('sistemas empresariales');
+  });
+
   it('should explain the domotics project value and stack', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
