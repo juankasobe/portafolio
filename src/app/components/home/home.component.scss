@@ -48,6 +48,8 @@
   background: rgba(20, 20, 22, 0.78);
   box-shadow: var(--shadow);
   backdrop-filter: blur(16px);
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .hero-copy h1 {
@@ -67,8 +69,9 @@
 }
 
 .hero-text {
-  max-width: 560px;
+  max-width: 640px;
   margin: 22px 0 0;
+  font-size: clamp(1rem, 1.8vw, 1.16rem);
 }
 
 .hero-actions,
@@ -111,6 +114,12 @@
   font-size: 0.9rem;
 }
 
+.hero-metrics span:first-child {
+  color: var(--ink);
+  border-color: rgba(217, 164, 65, 0.48);
+  background: rgba(217, 164, 65, 0.1);
+}
+
 @media (max-width: 860px) {
   .hero {
     min-height: auto;
@@ -127,8 +136,17 @@
 }
 
 @media (max-width: 520px) {
+  .hero {
+    padding-top: 104px;
+  }
+
   .hero-badge {
     right: 8px;
     bottom: 18px;
+  }
+
+  .hero-actions,
+  .hero-metrics {
+    gap: 10px;
   }
 }

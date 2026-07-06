@@ -1,16 +1,25 @@
 <section class="experience section-shell" id="experiencia">
     <div class="section-heading">
-        <p class="section-kicker">Trayectoria</p>
-        <h3 class="section-title">Experiencia</h3>
+        <p class="section-kicker">{{ experience.kicker }}</p>
+        <h3 class="section-title">{{ experience.title }}</h3>
     </div>
 
+    @for (item of experience.items; track item.role) {
     <div class="card experience-card">
-        <h5 class="card-header text-bg-secondary">Soporte técnico de software e infraestructura</h5>
+        <h5 class="card-header text-bg-secondary">{{ item.role }}</h5>
         <div class="card-body">
-            <h5 class="card-title">Incomis</h5>
-            <p class="card-text">Mantenimiento y corrección de errores para diferentes
-                sistemas empresariales en hardware y software en la empresa de tecnología de la información
-                <strong>Incomis</strong> en la ciudad de Ambato, Ecuador.</p>
+            <h5 class="card-title">{{ item.company }}</h5>
+            <p class="card-text">
+                {{ item.descriptionBeforeHighlight }}
+                <strong>{{ item.highlightedText }}</strong>
+                {{ item.descriptionAfterHighlight }}
+            </p>
+            <ul class="experience-highlights" aria-label="Aportes de la experiencia">
+                @for (highlight of item.highlights; track highlight) {
+                <li>{{ highlight }}</li>
+                }
+            </ul>
         </div>
     </div>
+    }
 </section>

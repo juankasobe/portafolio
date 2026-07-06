@@ -4,17 +4,20 @@
 
 .projects-grid {
   display: grid;
-  grid-template-columns: 1.08fr 0.92fr;
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 16px;
 }
 
 .project-card {
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
+  max-width: 560px;
 }
 
 .project-media {
   display: grid;
-  min-height: 260px;
+  min-height: 176px;
   place-items: center;
   border-bottom: 1px solid var(--line);
   background:
@@ -23,20 +26,24 @@
 }
 
 .app-preview {
-  width: min(38%, 180px);
-  max-height: 230px;
+  width: min(34%, 128px);
+  max-height: 150px;
   object-fit: contain;
-  filter: drop-shadow(0 20px 24px rgba(0, 0, 0, 0.42));
-}
-
-.game-media img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
+  filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.38));
 }
 
 .card-body {
-  padding: 24px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 18px;
+}
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
 }
 
 .project-type {
@@ -47,21 +54,109 @@
   text-transform: uppercase;
 }
 
-.card-title {
-  margin: 10px 0 12px;
+.project-status,
+.stack-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 3px 9px;
   color: var(--ink);
-  font-size: 1.55rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 0.78rem;
+  line-height: 1.2;
+}
+
+.card-title {
+  margin: 8px 0 8px;
+  color: var(--ink);
+  font-size: clamp(1.25rem, 2vw, 1.45rem);
+}
+
+.project-summary {
+  max-width: 62ch;
+  margin-bottom: 8px;
+  color: var(--ink);
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+.card-text {
+  max-width: 68ch;
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.project-detail {
+  margin-top: 14px;
+  padding: 10px 12px;
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  background: rgba(217, 164, 65, 0.08);
+}
+
+.project-detail p {
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.detail-label {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.project-highlights {
+  display: grid;
+  gap: 6px;
+  margin: 14px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.project-highlights li::marker {
+  color: var(--accent);
 }
 
 .project-links {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-top: 18px;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 16px;
 }
 
-@media (max-width: 860px) {
+@media (min-width: 861px) {
   .projects-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .project-media {
+    min-height: 152px;
+  }
+
+  .app-preview {
+    width: min(38%, 112px);
+    max-height: 128px;
+  }
+
+  .card-body {
+    padding: 16px;
   }
 }
