@@ -102,13 +102,13 @@ export const heroContent: HeroContent = {
     alt: '',
   },
   name: 'Juan Carlos Soberón',
-  headline: 'Desarrollador de apps, web y experiencias interactivas.',
-  description: 'Construyo interfaces claras, aplicaciones móviles y prototipos de videojuegos con una base técnica práctica.',
+  headline: 'Desarrollador de aplicaciones web y móviles.',
+  description: 'Construyo interfaces claras y aplicaciones móviles con una base técnica práctica.',
   photo: {
     src: 'selfie2.png',
     alt: 'Foto de Juan Carlos Soberón',
   },
-  badge: 'Angular · Godot · Apps',
+  badge: 'Angular · Ionic · SQL',
   cv: {
     href: 'CV_Juan_Soberon.pdf',
     download: 'CV_Juan_Soberon.pdf',
@@ -134,7 +134,7 @@ export const aboutContent: AboutContent = {
   kicker: 'Perfil',
   title: 'Sobre mi',
   intro:
-    '¡Hola! Soy un apasionado del desarrollo de aplicaciones y me encanta la programación de videojuegos. Me encanta crear sitios web dinámicos y experiencias de juego inmersivas utilizando herramientas como HTML, CSS, Angular y Godot. Siempre estoy aprendiendo y experimentando con nuevas tecnologías para mejorar mis habilidades.',
+    '¡Hola! Soy un apasionado del desarrollo de aplicaciones. Me gusta crear sitios web dinámicos y soluciones móviles utilizando herramientas como HTML, CSS, Angular e Ionic. Siempre estoy aprendiendo y experimentando con nuevas tecnologías para mejorar mis habilidades.',
   contactEmail: 'juanka5200@outlook.com',
   educationLabel: 'Estudios',
   education: [
@@ -181,18 +181,6 @@ export const projectsContent: ProjectsContent = {
         },
       ],
       toolIcons: [{ src: 'ionic.png', alt: 'Ionic' }],
-    },
-    {
-      mediaClass: 'game-media',
-      image: {
-        src: 'juego.png',
-        alt: 'Juego Mario vs DK',
-      },
-      type: 'Godot · Gameplay',
-      title: 'Demo Juego de Mario vs DK',
-      description: 'Nivel de videojuego inspirado en Mario vs DK realizado en Godot.',
-      links: [],
-      toolIcons: [{ src: 'godot.png', alt: 'Godot' }],
     },
   ],
 };

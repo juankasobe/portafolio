@@ -51,4 +51,17 @@ describe('AppComponent', () => {
     expect(cvLink?.textContent).toContain('Descargar CV');
   });
 
+  it('should focus the public content on web and mobile development', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    const pageText = compiled.textContent ?? '';
+
+    expect(pageText).toContain('Desarrollador de aplicaciones web y móviles');
+    expect(pageText).toContain('Angular · Ionic · SQL');
+    expect(pageText).not.toContain('videojuegos');
+    expect(pageText).not.toContain('Godot');
+    expect(pageText).not.toContain('Mario');
+  });
+
 });
