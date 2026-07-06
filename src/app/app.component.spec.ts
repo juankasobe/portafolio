@@ -36,6 +36,8 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('#about')).not.toBeNull();
     expect(compiled.querySelector('#proyectos')).not.toBeNull();
     expect(compiled.querySelector('#experiencia')).not.toBeNull();
+    expect(compiled.querySelector('#contacto')).not.toBeNull();
+    expect(compiled.querySelector('footer')).not.toBeNull();
   });
 
   it('should expose the downloadable CV link', () => {
@@ -120,6 +122,62 @@ describe('AppComponent', () => {
     expect(projectLink?.getAttribute('href')).toBe(
       'https://github.com/juankasobe/smartHome.git'
     );
+  });
+
+  it('should render contact information and essential links without email CTAs', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    const contact = compiled.querySelector('#contacto') as HTMLElement | null;
+    const mailtoLinks = compiled.querySelectorAll('a[href^="mailto:"]');
+    const emailText = contact?.querySelector('.contact-email');
+    const linkedinLink = contact?.querySelector(
+      'a[aria-label="Ver perfil de Juan Carlos Soberón en LinkedIn"]'
+    ) as HTMLAnchorElement | null;
+    const githubLink = contact?.querySelector(
+      'a[aria-label="Ver perfil de Juan Carlos Soberón en GitHub"]'
+    ) as HTMLAnchorElement | null;
+    const contactCvLink = contact?.querySelector(
+      'a[download="CV_Juan_Soberon.pdf"]'
+    ) as HTMLAnchorElement | null;
+
+    expect(contact?.textContent).toContain('Conversemos sobre tu próxima interfaz web o móvil');
+    expect(contact?.textContent).not.toContain('Escribirme por correo');
+    expect(emailText?.textContent).toContain('juanka5200@outlook.com');
+    expect(mailtoLinks.length).toBe(0);
+    expect(linkedinLink?.getAttribute('href')).toBe(
+      'https://www.linkedin.com/in/juan-sober%C3%B3n-573446277'
+    );
+    expect(githubLink?.getAttribute('href')).toBe('https://github.com/juankasobe');
+    expect(contactCvLink?.getAttribute('href')).toBe('CV_Juan_Soberon.pdf');
+  });
+
+  it('should render footer ownership and essential links', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    const footer = compiled.querySelector('footer') as HTMLElement | null;
+    const currentYear = new Date().getFullYear().toString();
+    const footerLinks = Array.from(
+      footer?.querySelectorAll('a') ?? []
+    ) as HTMLAnchorElement[];
+
+    expect(footer?.textContent).toContain(currentYear);
+    expect(footer?.textContent).toContain('Juan Carlos Soberón');
+    expect(footer?.textContent).toContain('Desarrollo web y móvil');
+    expect(footerLinks.map((link) => link.getAttribute('href'))).toEqual([
+      '#home',
+      'https://github.com/juankasobe',
+    ]);
+  });
+
+  it('should not render mailto links anywhere in the app', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+
+    expect(compiled.querySelectorAll('a[href^="mailto:"]').length).toBe(0);
+    expect(compiled.textContent).toContain('juanka5200@outlook.com');
   });
 
 });

@@ -32,12 +32,14 @@ describe('NavbarComponent', () => {
       'Sobre mí',
       'Proyectos',
       'Experiencia',
+      'Contacto',
     ]);
     expect(links.map((link) => link.getAttribute('href'))).toEqual([
       '#home',
       '#about',
       '#proyectos',
       '#experiencia',
+      '#contacto',
     ]);
     expect(links.every((link) => !link.hasAttribute('aria-current'))).toBeTrue();
   });

@@ -1,0 +1,21 @@
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <p class="footer-owner">© {{ footer.year }} {{ footer.owner }}</p>
+      <p class="footer-summary">{{ footer.summary }}</p>
+    </div>
+
+    <nav class="footer-links" aria-label="Enlaces esenciales del pie de página">
+      @for (link of footer.links; track link.href) {
+        <a
+          [href]="link.href"
+          [attr.aria-label]="link.ariaLabel"
+          [attr.target]="link.external ? '_blank' : null"
+          [attr.rel]="link.external ? 'noreferrer' : null"
+        >
+          {{ link.label }}
+        </a>
+      }
+    </nav>
+  </div>
+</footer>

@@ -26,12 +26,12 @@
   color: var(--accent);
 }
 
-.contact-link {
+.contact-text {
   display: inline-flex;
   margin-top: 12px;
   color: var(--ink);
-  text-decoration: none;
   border-bottom: 1px solid var(--accent);
+  user-select: text;
 }
 
 .education-grid {

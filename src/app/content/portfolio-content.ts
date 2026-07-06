@@ -103,6 +103,36 @@ export interface ExperienceContent {
   readonly items: readonly ExperienceItem[];
 }
 
+export interface BaseLink {
+  readonly href: string;
+  readonly label: string;
+  readonly ariaLabel: string;
+  readonly external?: boolean;
+}
+
+export interface ContactLink extends BaseLink {
+  readonly iconClass: string;
+  readonly download?: string;
+}
+
+export type FooterLink = BaseLink;
+
+export interface ContactContent {
+  readonly kicker: string;
+  readonly title: string;
+  readonly description: string;
+  readonly emailLabel: string;
+  readonly email: string;
+  readonly links: readonly ContactLink[];
+}
+
+export interface FooterContent {
+  readonly owner: string;
+  readonly year: number;
+  readonly summary: string;
+  readonly links: readonly FooterLink[];
+}
+
 export const heroContent: HeroContent = {
   greeting: 'Hola',
   greetingIcon: {
@@ -226,6 +256,57 @@ export const experienceContent: ExperienceContent = {
         'Apoyo en mantenimiento y revisión de sistemas empresariales.',
         'Corrección de errores reportados en entornos de uso interno.',
       ],
+    },
+  ],
+};
+
+export const contactContent: ContactContent = {
+  kicker: 'Contacto',
+  title: 'Conversemos sobre tu próxima interfaz web o móvil.',
+  description:
+    'Si necesitás una aplicación clara, responsiva y conectada a datos, podés revisar mis perfiles profesionales o copiar mi correo.',
+  emailLabel: 'Correo',
+  email: 'juanka5200@outlook.com',
+  links: [
+    {
+      href: 'https://www.linkedin.com/in/juan-sober%C3%B3n-573446277',
+      label: 'LinkedIn',
+      ariaLabel: 'Ver perfil de Juan Carlos Soberón en LinkedIn',
+      iconClass: 'bi bi-linkedin whiteIcon icono',
+      external: true,
+    },
+    {
+      href: 'https://github.com/juankasobe',
+      label: 'GitHub',
+      ariaLabel: 'Ver perfil de Juan Carlos Soberón en GitHub',
+      iconClass: 'bi bi-github whiteIcon icono',
+      external: true,
+    },
+    {
+      href: 'CV_Juan_Soberon.pdf',
+      label: 'CV',
+      ariaLabel: 'Descargar CV de Juan Carlos Soberón',
+      iconClass: 'bi bi-file-earmark-person whiteIcon icono',
+      download: 'CV_Juan_Soberon.pdf',
+    },
+  ],
+};
+
+export const footerContent: FooterContent = {
+  owner: 'Juan Carlos Soberón',
+  year: new Date().getFullYear(),
+  summary: 'Desarrollo web y móvil con Angular, Ionic y bases de datos.',
+  links: [
+    {
+      href: '#home',
+      label: 'Inicio',
+      ariaLabel: 'Volver al inicio del portafolio',
+    },
+    {
+      href: 'https://github.com/juankasobe',
+      label: 'GitHub',
+      ariaLabel: 'Ver perfil de Juan Carlos Soberón en GitHub',
+      external: true,
     },
   ],
 };
