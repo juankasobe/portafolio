@@ -43,11 +43,12 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     const cvLink = compiled.querySelector(
-      'a[download="CVJuan__Soberon.pdf"]'
+      'a[download="CV_Juan_Soberon.pdf"]'
     ) as HTMLAnchorElement | null;
 
     expect(cvLink).not.toBeNull();
-    expect(cvLink?.getAttribute('href')).toBe('CVJuan_Soberon.pdf');
+    expect(cvLink?.getAttribute('href')).toBe('CV_Juan_Soberon.pdf');
     expect(cvLink?.textContent).toContain('Descargar CV');
   });
+
 });

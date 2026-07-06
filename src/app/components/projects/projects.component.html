@@ -1,41 +1,31 @@
 <section class="projects section-shell" id="proyectos">
       <div class="section-heading">
-            <p class="section-kicker">Trabajo seleccionado</p>
-            <h3 class="section-title">Proyectos</h3>
+            <p class="section-kicker">{{ projects.kicker }}</p>
+            <h3 class="section-title">{{ projects.title }}</h3>
       </div>
 
       <div class="projects-grid">
+            @for (project of projects.items; track project.title) {
             <article class="card project-card card-hover">
-                  <div class="project-media app-media">
-                        <img src="app.png" class="app-preview" alt="Vista de la app de domótica">
+                  <div class="project-media {{ project.mediaClass }}">
+                        <img [src]="project.image.src" [class]="project.image.className ?? ''" [alt]="project.image.alt">
                   </div>
                   <div class="card-body">
-                        <span class="project-type">Ionic · Mobile</span>
-                        <h5 class="card-title">App de domótica</h5>
-                        <p class="card-text">Aplicación para dispositivos Android de control de luces inteligentes.</p>
+                        <span class="project-type">{{ project.type }}</span>
+                        <h5 class="card-title">{{ project.title }}</h5>
+                        <p class="card-text">{{ project.description }}</p>
                         <div class="project-links">
-                              <a href="https://github.com/juankasobe/smartHome.git" target="_blank" title="GitHub" rel="noreferrer">
-                                    <i class="bi bi-github whiteIcon icono"></i>
-                              </a>
-                              <img src="ionic.png" alt="Ionic" class="icoPersonal" />
+                              @for (link of project.links; track link.href) {
+                                    <a [href]="link.href" target="_blank" [title]="link.title" rel="noreferrer">
+                                          <i [class]="link.iconClass"></i>
+                                    </a>
+                              }
+                              @for (icon of project.toolIcons; track icon.src) {
+                                    <img [src]="icon.src" [alt]="icon.alt" class="icoPersonal" />
+                              }
                         </div>
                   </div>
             </article>
-
-            <article class="card project-card card-hover">
-                  <div class="project-media game-media">
-                        <img src="juego.png" alt="Juego Mario vs DK">
-                  </div>
-                  <div class="card-body">
-                        <span class="project-type">Godot · Gameplay</span>
-                        <h5 class="card-title">Demo Juego de Mario vs DK</h5>
-                        <p class="card-text">
-                              Nivel de videojuego inspirado en Mario vs DK realizado en Godot.
-                        </p>
-                        <div class="project-links">
-                              <img src="godot.png" alt="Godot" class="icoPersonal" />
-                        </div>
-                  </div>
-            </article>
+            }
       </div>
 </section>

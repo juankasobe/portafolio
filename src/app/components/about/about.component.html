@@ -1,48 +1,38 @@
 <section class="about section-shell" id="about">
   <div class="section-heading">
-    <p class="section-kicker">Perfil</p>
-    <h3 class="section-title">Sobre mi</h3>
+    <p class="section-kicker">{{ about.kicker }}</p>
+    <h3 class="section-title">{{ about.title }}</h3>
   </div>
 
   <div class="about-layout">
     <div class="about-copy">
       <p>
-        ¡Hola! Soy un apasionado del desarrollo de aplicaciones y me encanta la programación de videojuegos.
-        Me encanta crear sitios web dinámicos y experiencias de juego inmersivas utilizando herramientas como HTML, CSS,
-        Angular y Godot.
-        Siempre estoy aprendiendo y experimentando con nuevas tecnologías para mejorar mis habilidades.
+        {{ about.intro }}
       </p>
-      <a class="contact-link" href="mailto:juanka5200@outlook.com">
-        juanka5200&#64;outlook.com
+      <a class="contact-link" [href]="'mailto:' + about.contactEmail">
+        {{ about.contactEmail }}
       </a>
     </div>
 
-    <div class="education-grid" aria-label="Estudios">
-      <div class="card cardWidth card-hover">
-        <div class="card-header text-bg-secondary">Universidad</div>
-        <div class="card-body">
-          <p class="card-text">Ingeniería en Ciencias de la Computación</p>
-          <p class="card-text institution">Universidad Tecnológica Indoamérica</p>
+    <div class="education-grid" [attr.aria-label]="about.educationLabel">
+      @for (education of about.education; track education.type) {
+        <div class="card cardWidth card-hover">
+          <div class="card-header text-bg-secondary">{{ education.type }}</div>
+          <div class="card-body">
+            <p class="card-text">{{ education.title }}</p>
+            <p class="card-text institution">{{ education.institution }}</p>
+          </div>
         </div>
-      </div>
-      <div class="card cardWidth card-hover">
-        <div class="card-header text-bg-secondary">Certificado</div>
-        <div class="card-body">
-          <p class="card-text">Mobile Application Developer 2.0 Http And Mqtt</p>
-          <p class="card-text institution">Universidad Tecnológica Indoamérica</p>
-        </div>
-      </div>
+      }
     </div>
   </div>
 
   <div class="skills-panel">
-    <h4>Habilidades</h4>
+    <h4>{{ about.skillsTitle }}</h4>
     <div class="skills-list">
-      <img src="angular.png" alt="Angular" class="icoProgramacion" />
-      <img src="boot.png" alt="Bootstrap" class="icoProgramacion" />
-      <img src="nodejs.png" alt="Node.js" class="icoProgramacion" />
-      <img src="Net.png" alt=".NET" class="icoProgramacion" />
-      <img src="mysql2.png" alt="MySQL" class="icoProgramacion" />
+      @for (skill of about.skills; track skill.src) {
+        <img [src]="skill.src" [alt]="skill.alt" class="icoProgramacion" />
+      }
     </div>
   </div>
 </section>

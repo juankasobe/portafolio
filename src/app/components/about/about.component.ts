@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { aboutContent } from '../../content/portfolio-content';
 
 @Component({
   selector: 'app-about',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './about.component.scss'
 })
 export class AboutComponent {
-
+  protected readonly about = aboutContent;
 }
