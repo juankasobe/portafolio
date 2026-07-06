@@ -5,12 +5,12 @@
 .about-layout {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
-  gap: clamp(24px, 5vw, 56px);
+  gap: clamp(1.5rem, 5vw, 3.5rem);
   align-items: start;
 }
 
 .about-copy {
-  padding: 28px;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
   border-left: 3px solid var(--accent);
   background: linear-gradient(90deg, rgba(217, 164, 65, 0.08), transparent);
 }
@@ -37,16 +37,16 @@
 .education-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  gap: clamp(0.875rem, 2vw, 1rem);
 }
 
 .about-details {
   display: grid;
-  gap: 18px;
+  gap: clamp(1rem, 2.5vw, 1.25rem);
 }
 
 .cardWidth {
-  min-height: 230px;
+  min-height: 210px;
   overflow: hidden;
 }
 
@@ -57,8 +57,9 @@
 
 .card-body {
   display: grid;
-  gap: 18px;
-  padding: 22px;
+  align-content: space-between;
+  gap: 1rem;
+  padding: clamp(1.125rem, 2.5vw, 1.375rem);
 }
 
 .institution {
@@ -70,11 +71,11 @@
 .skills-panel {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 24px;
+  gap: clamp(1rem, 3vw, 1.5rem);
   align-items: center;
-  padding: 22px 24px;
+  padding: clamp(1.125rem, 3vw, 1.5rem);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--radius-card);
   background: rgba(255, 255, 255, 0.05);
 }
 
@@ -87,7 +88,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  gap: 16px;
+  gap: 0.875rem;
 }
 
 .icoProgramacion {
@@ -96,7 +97,7 @@
   object-fit: contain;
   padding: 10px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--radius-card);
   background: rgba(255, 255, 255, 0.08);
 }
 
@@ -109,5 +110,20 @@
 
   .skills-list {
     justify-content: flex-start;
+  }
+
+  .cardWidth {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .about-copy {
+    padding-left: 1rem;
+  }
+
+  .skills-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(54px, max-content));
   }
 }

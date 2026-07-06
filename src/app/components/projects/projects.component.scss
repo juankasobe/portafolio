@@ -4,20 +4,22 @@
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: clamp(1rem, 3vw, 1.25rem);
+  align-items: stretch;
 }
 
 .project-card {
   display: flex;
   flex-direction: column;
+  width: 100%;
   overflow: hidden;
   max-width: 560px;
 }
 
 .project-media {
   display: grid;
-  min-height: 176px;
+  min-height: clamp(9.5rem, 20vw, 11rem);
   place-items: center;
   border-bottom: 1px solid var(--line);
   background:
@@ -36,7 +38,7 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 18px;
+  padding: clamp(1rem, 2.5vw, 1.125rem);
 }
 
 .project-meta {
@@ -71,7 +73,8 @@
 .card-title {
   margin: 8px 0 8px;
   color: var(--ink);
-  font-size: clamp(1.25rem, 2vw, 1.45rem);
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  line-height: 1.2;
 }
 
 .project-summary {
@@ -92,7 +95,7 @@
   margin-top: 14px;
   padding: 10px 12px;
   border-left: 3px solid var(--accent);
-  border-radius: 8px;
+  border-radius: var(--radius-card);
   background: rgba(217, 164, 65, 0.08);
 }
 
@@ -146,6 +149,12 @@
   }
 }
 
+@media (min-width: 1180px) {
+  .project-card {
+    max-width: none;
+  }
+}
+
 @media (max-width: 520px) {
   .project-media {
     min-height: 152px;
@@ -158,5 +167,9 @@
 
   .card-body {
     padding: 16px;
+  }
+
+  .project-links {
+    gap: 12px;
   }
 }
