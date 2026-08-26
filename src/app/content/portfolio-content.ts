@@ -63,19 +63,21 @@ export interface ProjectToolIcon {
   readonly alt: string;
 }
 
+export interface ProjectImage {
+  readonly src: string;
+  readonly alt: string;
+  readonly className?: string;
+}
+
 export interface PortfolioProject {
   readonly mediaClass: string;
-  readonly image: {
-    readonly src: string;
-    readonly alt: string;
-    readonly className?: string;
-  };
+  readonly images: readonly ProjectImage[];
   readonly type: string;
   readonly status: string;
   readonly title: string;
   readonly summary: string;
   readonly description: string;
-  readonly role: string;
+  readonly role?: string;
   readonly stack: readonly string[];
   readonly highlights: readonly string[];
   readonly links: readonly ProjectLink[];
@@ -179,11 +181,13 @@ export const projectsContent: ProjectsContent = {
   items: [
     {
       mediaClass: 'app-media',
-      image: {
-        src: 'app.png',
-        alt: 'Vista de la app de domótica',
-        className: 'app-preview',
-      },
+      images: [
+        {
+          src: 'app.png',
+          alt: 'Vista de la app de domótica',
+          className: 'app-preview',
+        },
+      ],
       type: 'Ionic · Mobile',
       status: 'Aplicación Android',
       title: 'App de domótica',
@@ -207,6 +211,88 @@ export const projectsContent: ProjectsContent = {
       ],
       toolIcons: [{ src: 'ionic.png', alt: 'Ionic' }],
     },
+    {
+      mediaClass: 'app-media',
+      images: [
+        {
+          src: 'DoneDay/DondeDay1.jpg',
+          alt: 'Pantalla principal de ToDoApp con progreso y tareas pendientes',
+        },
+        {
+          src: 'DoneDay/DondeDay2.jpg',
+          alt: 'Formulario de ToDoApp para crear una tarea con categoría y prioridad',
+        },
+        {
+          src: 'DoneDay/DondeDay3.jpg',
+          alt: 'Vista de categorías de ToDoApp para organizar las tareas',
+        },
+        {
+          src: 'DoneDay/DondeDay4.jpg',
+          alt: 'Menú lateral de ToDoApp con accesos a tareas y categorías',
+        },
+      ],
+      type: 'Ionic · Angular · Android',
+      status: 'Aplicación Android',
+      title: 'ToDoApp',
+      summary:
+        'Organizador local de tareas con progreso, prioridades, fechas límite y categorías.',
+      description:
+        'Aplicación Android con Ionic y Angular que guarda las tareas localmente con SQLite. Permite crear tareas, organizarlas por categorías, filtrar por fecha límite y marcarlas como completadas.',
+      stack: ['Ionic', 'Angular', 'Capacitor', 'SQLite', 'Android'],
+      highlights: [
+        'Tareas locales organizadas por categorías.',
+        'Progreso visible, prioridades y fechas límite.',
+        'Marcado de tareas completadas y filtros por fecha.',
+      ],
+      links: [
+        {
+          href: 'https://github.com/juankasobe/ToDoApp',
+          title: 'GitHub',
+          ariaLabel: 'Ver repositorio de ToDoApp en GitHub',
+          iconClass: 'bi bi-github whiteIcon icono',
+        },
+      ],
+      toolIcons: [{ src: 'ionic.png', alt: 'Ionic' }],
+    },
+    {
+      mediaClass: 'app-media',
+      images: [
+        {
+          src: 'FinanzasApp/FinanzasApp1.jpg',
+          alt: 'Dashboard de FinanzasApp con balance, ingresos, gastos y presupuestos',
+        },
+        {
+          src: 'FinanzasApp/FinanzasApp2.jpg',
+          alt: 'Pantalla de transacciones de FinanzasApp para registrar movimientos',
+        },
+        {
+          src: 'FinanzasApp/FinanzasApp3.jpg',
+          alt: 'Pantalla de categorías de FinanzasApp con categorías integradas',
+        },
+      ],
+      type: 'Kotlin · Jetpack Compose · Android',
+      status: 'Aplicación Android',
+      title: 'FinanzasApp',
+      summary:
+        'Seguimiento financiero local de ingresos, gastos y presupuestos mensuales por categoría.',
+      description:
+        'Aplicación Android offline con Kotlin y Jetpack Compose que mantiene los datos en el dispositivo. Muestra ingresos, gastos, balance neto y transacciones recientes del mes, además del estado de los presupuestos por categoría.',
+      stack: ['Kotlin', 'Jetpack Compose', 'Room', 'Android'],
+      highlights: [
+        'Registro local de ingresos y gastos.',
+        'Balance neto y transacciones recientes del mes.',
+        'Presupuestos mensuales por categoría con estados al límite o excedidos.',
+      ],
+      links: [
+        {
+          href: 'https://github.com/juankasobe/finanzasApp',
+          title: 'GitHub',
+          ariaLabel: 'Ver repositorio de FinanzasApp en GitHub',
+          iconClass: 'bi bi-github whiteIcon icono',
+        },
+      ],
+      toolIcons: [],
+    },
   ],
 };
 
@@ -225,6 +311,20 @@ export const experienceContent: ExperienceContent = {
         'Atención de problemas relacionados con software e infraestructura.',
         'Apoyo en mantenimiento y revisión de sistemas empresariales.',
         'Corrección de errores reportados en entornos de uso interno.',
+      ],
+    },
+    {
+      role: 'Soporte técnico',
+      company: 'Mazpartes',
+      descriptionBeforeHighlight: 'Soporte técnico para ',
+      highlightedText: 'Mazpartes',
+      descriptionAfterHighlight:
+        ' en tareas de mantenimiento, instalación de hardware y operación del sistema contable Odoo.',
+      highlights: [
+        'Mantenimiento técnico.',
+        'Instalación de hardware.',
+        'Operación del sistema contable Odoo.',
+        'Implementaciones de Odoo para otras empresas.',
       ],
     },
   ],
